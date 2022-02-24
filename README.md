@@ -38,8 +38,8 @@
 
 <br />
 
-- [ ] Busca pelo CEP na API da [ViaCEP](https://viacep.com.br/)
-- [ ] Cache do CEP buscado em uma base de dados local
+- [x] Busca pelo CEP na API da [ViaCEP](https://viacep.com.br/)
+- [x] Cache do CEP buscado em uma base de dados local
 
 <br />
 
