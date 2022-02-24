@@ -1,14 +1,9 @@
-import express, { Request, Response } from 'express';
-import 'dotenv/config';
+import { App } from './config/app';
+import { Routes } from './config/routes';
+import env from './config/env';
 
-const PORT = process.env.API_PORT || 8080;
+const httpServer = App.getInstance(Routes);
 
-const app = express();
-
-app.get('/', (request: Request, response: Response) => {
-  return response.send('Hello world');
-});
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+httpServer.listen(env.PORT, () => {
+  console.log(`Server is running on port ${env.PORT}`);
 });
