@@ -1,9 +1,9 @@
-import { Router, Request, Response } from 'express';
+import { Router } from 'express';
+// controllers
+import { AddressController } from '../../presentation/controllers/AddressController';
 // routes instance
 const router = Router();
 
-router.get('/', (request: Request, response: Response) => {
-  return response.send('Hello world');
-});
+router.get('/search/:code', AddressController.search);
 
 export { router as Routes };
