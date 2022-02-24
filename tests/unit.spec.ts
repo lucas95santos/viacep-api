@@ -67,4 +67,18 @@ describe('CEP na base de dados', () => {
     expect(foundAddress).toBeDefined();
     expect(foundAddress).toHaveProperty('cep');
   });
+
+  it('deve retornar uma exceção se o CEP já existir na base de dados', async () => {
+    // criando salvando um novo endereço na base de dados
+    const createAddressService = new CreateAddressService();
+    await createAddressService.execute(address);
+
+    await expect(createAddressService.execute(address)).rejects.toEqual(
+      new Error('O endereço já foi cadastrado'),
+    );
+
+    // removendo um endereço da base de dados
+    const removeAddressService = new RemoveAddressService();
+    await removeAddressService.execute('79080-191');
+  });
 });
