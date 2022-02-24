@@ -64,15 +64,15 @@
 
 <br />
 
-<p>Para rodar o projeto siga as instruções abaixo:</p>
+<h3>Para rodar o projeto siga as instruções abaixo:</3>
 
-1. Clonar esse repositório em um local de sua preferência
+**1.** Clonar esse repositório em um local de sua preferência
 
-2. Instalar as depedências do projeto com o **npm** (comando `npm install`) ou com **yarn** (comando `yarn`)
+**2.** Instalar as depedências do projeto com o **npm** (comando `npm install`) ou com **yarn** (comando `yarn`)
 
-3. Execute o comando `yarn typeorm -- migration:run` ou `npm run typeorm -- migration:run` para criar a tabela onde o CEP ficará armazenado.
+**3.** Execute o comando `yarn typeorm -- migration:run` ou `npm run typeorm -- migration:run` para criar a tabela onde o CEP ficará armazenado.
 
-4. Execute o comando `yarn start` ou `npm start` para subir o servidor.
+**4.** Execute o comando `yarn start` ou `npm start` para subir o servidor.
 
 <br />
 
