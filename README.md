@@ -64,7 +64,7 @@
 
 <br />
 
-<h3>Para rodar o projeto siga as instruções abaixo:</3>
+<h3>Para rodar o projeto siga as instruções abaixo:</h3>
 
 **1.** Clonar esse repositório em um local de sua preferência
 
