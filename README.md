@@ -74,7 +74,7 @@
 
 **4.** Execute o comando `yarn start` ou `npm start` para subir o servidor.
 
-**5.** Pronto. O servidor estará disponível na porta **8080**.
+**5.** Pronto. O servidor estará disponível na url **http://localhost:8080**.
 
 <br />
 
