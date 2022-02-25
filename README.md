@@ -74,6 +74,8 @@
 
 **4.** Execute o comando `yarn start` ou `npm start` para subir o servidor.
 
+**5.** Pronto. O servidor estará disponível na porta **8080**.
+
 <br />
 
 <h2 id="author">✏️️ Autor</h2>
