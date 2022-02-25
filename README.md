@@ -78,6 +78,33 @@
 
 <br />
 
+<h2 id="features">🗒️ Testes</h2>
+
+<br />
+
+<p>Foram aplicados 7 testes nessa API, sendo 4 de unidade e 3 de integração:</p>
+
+**Testes de unidade**
+
+- Verificar se quando o CEP não está armazenado na base de dados a resposta é `undefined`.
+- Verificar se o CEP é armazenado na base de dados.
+- Verificar se quando o CEP está armazenado na base de dados a resposta contem os dados do mesmo.
+- Verificar se o CEP não é armazenado mais de uma vez na base de dados.
+
+**Testes de integração**
+
+- Verificar se ocorre falha se o CEP não é passado na pesquisa.
+- Verificar se ocorre falha se o CEP não for encontrado.
+- Verificar se ocorre sucesso se CEP for encontrado.
+
+<br />
+
+<p align="center">
+    <img src="./assets/tests/testes.png" height="250" width="400" alt="Testes" />
+</p>
+
+<br />
+
 <h2 id="author">✏️️ Autor</h2>
 
 <br />
