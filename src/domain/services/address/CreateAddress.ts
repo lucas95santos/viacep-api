@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 // entities
-import { Address } from '../entities/Address';
+import { Address } from '../../entities/Address';
 
 export interface IAddressPayload {
   cep: string;

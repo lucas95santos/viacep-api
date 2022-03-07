@@ -1,14 +1,9 @@
 import { Request, Response } from 'express';
-import axios from 'axios';
 // entities
 import { Address } from '../../domain/entities/Address';
 // services
-import {
-  CreateAddressService,
-  FindAddressService,
-} from '../../domain/services';
+import { LocalSearchService, RemoteSearchService } from '../../domain/services';
 
-// TODO: implementar helpers para os http codes
 export class AddressController {
   public static async search(
     request: Request,
@@ -20,46 +15,24 @@ export class AddressController {
     try {
       if (!code) {
         return response.status(400).json({
-          error: 'Código postal não informado',
+          error: 'CEP não informado',
         });
       }
 
       const postalCode = code.replace('-', '').trim();
 
-      // pesquisar CEP no banco
-      const findAddressService = new FindAddressService();
-      const codeToSearch = `${postalCode.substring(
-        0,
-        5,
-      )}-${postalCode.substring(5, 8)}`;
+      const localSearch = new LocalSearchService();
+      address = await localSearch.execute(postalCode);
 
-      const foundAddress = await findAddressService.execute(codeToSearch);
+      if (!address) {
+        const remoteSearch = new RemoteSearchService();
+        address = await remoteSearch.execute(postalCode);
+      }
 
-      if (foundAddress) {
-        address = foundAddress;
-      } else {
-        // se o endereço não existe
-        const viaCepResponse = await axios.get(
-          `https://viacep.com.br/ws/${postalCode}/json`,
-        );
-
-        if (!viaCepResponse.data) {
-          return response.status(400).json({
-            error: 'Código postal não encontrado',
-          });
-        }
-
-        address = viaCepResponse.data;
-
-        // salvando o CEP pesquisado na base de dados
-        const createAddressService = new CreateAddressService();
-        const addressCreated = await createAddressService.execute(address);
-
-        if (!addressCreated) {
-          return response.status(400).json({
-            error: 'Não foi possível salvar o endereço',
-          });
-        }
+      if (!address) {
+        return response.status(400).json({
+          error: 'CEP não encontrado',
+        });
       }
 
       return response.status(200).json(address);
